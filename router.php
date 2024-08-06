@@ -12,3 +12,4 @@ if ($router ->isTelegram()){
   }
   
 require'routes/web.php';
+require_once 'src/Router.php';

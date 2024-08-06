@@ -24,37 +24,23 @@ $todo=new Todo();
 
 
 
+    
 
-$router->post('/add-todo', function() {
-    $todo = new Todo();
-    $todo->saveTodo($_POST['todo']);
-    header("location:/todos");
-    exit();
-});
  
+$router->post('/add-todo', fn() => require 'controllers/addTask.php');
 
 
 
 
 
 
-
-$router->get('/delete', function() {
-    $todo= new Todo();
-    $todo->delete((int)$_GET['todo_id']);
-     header("location:/todos");
-     exit();
- });
+$router->get('/delete', fn() => require 'controllers/deleteTask.php');
+   
 
 
 
 
- $router->get('/toggle', function() {
-    $todo = new Todo();
-    $todo->toggle((int)$_GET['todo_id']);
-  header("location:/todos");
-   exit();
-});
+ $router->get('/toggle', fn() => require 'controllers/toggleTask.php');
 
 
 //$get=$router->get('/', fn() =>  require 'view/pages/home.php');
